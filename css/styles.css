@@ -1,0 +1,80 @@
+.form-wrapper{
+	width:450px;
+	padding:30px;
+	margin: auto;
+	margin-top: 30px;
+	background-color: #fff;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.form-wrapper .inner-wrap{
+	padding: 30px;
+	background-color: #ccc;
+	border-radius: 6px;
+}
+
+.form-wrapper h1{
+	background-color: #2a88ad;
+	padding: 20px 30px 15px 30px;
+	color: #fff;
+	border-radius:10px 10px 0px 0px;
+	text-shadow: 3px 3px 3px rgba(0,0,0, 0.8);
+	font-size: 30px;
+	font-family: serif;
+	box-shadow: 0px 2px 2px 0px rgba(255,255,255, 0.3)
+}
+.form-wrapper h1 span{
+	display:block;
+	margin-top: 5px;
+	font-size: 14px;
+	text-shadow:none;
+}
+.form-wrapper .inner-wrap input, .form-wrapper .inner-wrap textarea{
+	display:block;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	border: 2px solid #fff;
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.8);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.8);
+	margin-bottom: 15px;
+}
+.form-wrapper .section{
+	font:20px serif;
+	color:#2a88ad;
+	margin-bottom:  10px;
+	margin-top:10px;
+
+}
+.form-wrapper .section span{
+	background-color: #2a88ad;
+	color:#fff;
+	padding: 5px 10px;
+	border-radius: 100%;
+	border: 4px solid white;
+	font-size:16px;
+	margin-left:-45px;
+	margin-right:20px;
+
+}
+.form-wrapper .button-section input{
+	background: #2a88ad;
+	padding: 10px;
+	border-radius: 6px;
+	color: #fff;
+	font: 16px serif;
+	border: 1px solid #257c9e;
+	margin-top: 5px;
+}
+.form-wrapper .button-section input:hover{
+	background: #2a6881;
+	cursor:pointer;
+}
+
+.form-wrapper .button-section span{
+	float:right;
+	margin-top: 15px;
+}
