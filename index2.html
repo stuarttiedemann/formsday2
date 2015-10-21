@@ -10,29 +10,76 @@
 </head>
 <body>
 	<div class="form-wrapper">
-		<fieldset>
-			<legend><span class="number">1</span>Candidate Info</legend>
-			<input type="text" name="name" placeholder="Your Name">
-			<input type="email" name="email" placeholder="Your Email">
-			<textarea name="about" placeholder="Tell us about yourself"></textarea>
-			<legend>Interests:</legend>
-			<select name="interests" multiple>
-				<option value="programming">Programming</option>
-				<option value="programming">Swimming</option>
-				<option value="programming">Hiking</option>
-				<option value="programming">Trading</option>
-				<option value="programming">Playing Black Jack</option>
-				<option value="programming">Softball</option>
-				<option value="programming">Tennis</option>
-				<option value="programming">Video Games</option>
-				<option value="programming">College football</option>
-			</select>
-		</fieldset>
-		<fieldset>
-			<legend><span class="number">2</span>Additional Info</legend>	
-			<textarea name="school" placeholder="About your school"></textarea>		
-		</fieldset>
-		<input type="submit">
+		<div name="signUpForm" onsubmit="return (validateForm());">
+			<div class="form-group name-wrapper">
+				<fieldset>
+					<legend><span class="number">1</span>Candidate Info</legend>
+					<input class="form-control" type="text" name="name" placeholder="Your Name">
+					<input class="form-control" type="email" name="email" placeholder="Your Email">
+					<textarea name="about" placeholder="Tell us about yourself"></textarea>
+					<legend>Interests:</legend>
+					<select name="interests" multiple>
+						<option value="programming">Programming</option>
+						<option value="programming">Swimming</option>
+						<option value="programming">Hiking</option>
+						<option value="programming">Trading</option>
+						<option value="programming">Playing Black Jack</option>
+						<option value="programming">Softball</option>
+						<option value="programming">Tennis</option>
+						<option value="programming">Video Games</option>
+						<option value="programming">College football</option>
+					</select>
+				</fieldset>
+				<fieldset>
+					<legend><span class="number">2</span>Additional Info</legend>	
+					<textarea name="school" placeholder="About your school"></textarea>		
+				</fieldset>
+				<input type="submit">
+			</div>
+		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type ="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function validateForm(){
+			
+			if(signUpForm.Name.value.length<4){
+				signUpForm.Name.focus();
+				alert("You must enter your full name of at least four letters.");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.address.value.length < 8){
+				signUpForm.address.focus();
+				alert("You must enter your full address");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.email.value.length<4){
+				signUpForm.email.focus();
+				alert("Enter a valid email");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.phoneNumber.value.length != 10){
+				signUpForm.phoneNumber.focus();
+				alert("Enter a valid phone number with area code");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.password.value.length<8){
+				signUpForm.password.focus();
+				alert("A valid password must contain 8 characters");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.privacy.value === false){
+				signUpForm.privacy.focus();
+				alert("You must agree to the Terms and Policies ");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			} 
+		}
+	</script>
 </body>
 </html>

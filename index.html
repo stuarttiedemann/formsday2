@@ -6,31 +6,92 @@
 	<title>Day Two Forms</title>
 	
 	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 	<div class="form-wrapper">
-		<h1>Sign Up Now!  <span>Sign up and tell us what you think of our site</span></h1>
-		<div class="section"><span>1</span>First Name & address</div>
-		<div class="inner-wrap">
-			<label>Your Full Name <input type="text" name="fullName" placeholder="Name"></label>
-			<label>Address <textarea name="address"></textarea></label>
+		<form name="signUpForm" onsubmit="return (validateForm());">
+			<div id="name-wrapper" class="form-group">
+				<h1>Sign Up Now!  <span>Sign up and tell us what you think of our site</span></h1>
+				<div class="section"><span>1</span>First Name & address</div>
+				<div class="inner-wrap">
+					<label>Your Full Name </label><input class="form-control" type="text" name="fullName" placeholder="Name"><span id="error-name"></span>
+					<label>Address </label><textarea class="form-control" name="address"></textarea>
+				</div>
+			</div>
+			<div class="section"><span>2</span>Email & Phone</div>
+			
+			<div class="inner-wrap">		
+				<label>Email</label><input class="form-control" type="email" name="email" placeholder="Email"></label>
+				<label>Phone</label><input class="form-control" type="text" name="phoneNumber">
+			</div>
+			<div class="section"><span>3</span>Password</div>
+			<div class="inner-wrap">
+				<label>Password<input class="form-control" type="password" name="password"></label>
+				<label>Confirm Password<input type="password" name="password2"></label><span id="confirm-match"></span>
+			</div>
+			<div class="button-section">
+				<input  type="submit" value="Sign Me Up!">
+				<span class="privacy-policy">
+					<input class="form-control" type="checkbox" name="privacy" id="checkboxError" value="option1">I agree to the Terms and Policies.</span>
+			</div>
+		
 		</div>
-		<div class="section"><span>2</span>Email & Phone</div>
-		<div class="inner-wrap">		
-			<label>Email<input type="email" name="email" placeholder="Email"></label>
-			<label>Phone<input type="text" name="phoneNumber"></label>
-		</div>
-		<div class="section"><span>3</span>Password</div>
-		<div class="inner-wrap">
-			<label>Password<input type="password" name="password"></label>
-			<label>Confirm Password<input type="password" name="password2"></label>
-		</div>
-		<div class="button-section">
-			<input type="submit" value="Sign Me Up!">
-			<span class="privacy-policy">
-				<input type="checkbox" name="privacy">I agree to the Terms and Policies.</span>
-		</div>
-	</div>	
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type ="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function validateForm(){
+			
+			if(signUpForm.fullName.value.length<3){
+				signUpForm.fullName.focus();
+				document.getElementById("name-wrapper").className="form-group has-error";
+				document.getElementById("error-name").className="help-block";
+				document.getElementById("error-name").innerHTML="Name must be at least three characters";
+				return false;
+			}
+			if(signUpForm.address.value.length < 8){
+				signUpForm.address.focus();
+				alert("You must enter your full address");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.email.value.length<4){
+				signUpForm.email.focus();
+				alert("Enter a valid email");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.phoneNumber.value.length != 10){
+				signUpForm.phoneNumber.focus();
+				alert("Enter a valid phone number with area code");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			var password = signUpForm.password.value;
+			if(password.length<8){
+				signUpForm.password.focus();
+				alert("A valid password must contain 8 characters");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				return false;
+			}
+			if(signUpForm.password2.value != password){
+				signUpForm.password2.focus();
+				alert("passwords must match.");
+				document.getElementById("name-wrapper").className="form-group has-error";
+				document.getElementById("confirm-match").className="help-block has-error";
+				document.getElementById("confirm-match").innerHTML="Passwords must match."
+				return false;
+			}
+
+			if(document.getElementById("checkboxError").checked === false){
+				signUpForm.privacy.focus();
+				alert("You must agree to the Terms and Policies ");
+				document.getElementById("name-wrapper").className="form-group";
+				return false;
+			} 
+		}
+	</script>
 </body>
 </html>
